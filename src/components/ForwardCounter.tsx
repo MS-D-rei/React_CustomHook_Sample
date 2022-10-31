@@ -1,16 +1,11 @@
 import { useEffect, useState } from 'react';
 import { StyledCardDiv } from '@/components/Card';
+import { useCounter } from '@/hooks/use-counter';
 
 function ForwardCounter() {
-  const [counter, setCounter] = useState(0);
+  const counter = useCounter();
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCounter((prevCounter) => prevCounter + 1);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
+  console.log('forward counter is re-rendered');
 
   return <StyledCardDiv>{counter}</StyledCardDiv>;
 }

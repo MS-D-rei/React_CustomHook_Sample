@@ -4,6 +4,8 @@ import { StyledCardDiv } from '@/components/Card';
 function BackwardCounter() {
   const [counter, setCounter] = useState(0);
 
+  console.log('backward counter is re-rendered');
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCounter((prevCounter) => prevCounter - 1);

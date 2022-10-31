@@ -1,18 +1,10 @@
 import { useEffect, useState } from 'react';
 import { StyledCardDiv } from '@/components/Card';
+import { useCounter } from '@/hooks/use-counter';
 
 function BackwardCounter() {
-  const [counter, setCounter] = useState(0);
-
+  const counter = useCounter(false);
   console.log('backward counter is re-rendered');
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCounter((prevCounter) => prevCounter - 1);
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return <StyledCardDiv>{counter}</StyledCardDiv>;
 }
